@@ -44,6 +44,27 @@ function sayHello() {
 
 function drawRectangle() {
 
+  let width = prompt("Width:");
+  let height = prompt("Height:");
+  let x = prompt("X Value:");
+  let y = prompt("Y Value:");
+
+  if (Number.isInteger(Number(width))=false || Number.isInteger(Number(height))=false || Number.isInteger(Number(x))=false || Number.isInteger(Number(y))=false) {
+    alert("One of your inputs is not a number.")
+  }
+  else if (width<1) {
+    alert("Your width is too small.");
+  }
+  else if (width>1024) {
+    alert("Your width is too large");
+  }
+  else if (height>512) {
+    alert("Your height is too large");
+  }
+  else if (height<1) {
+    alert("Your height is too small")
+  }
+
 }
 
 /*

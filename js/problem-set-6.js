@@ -83,33 +83,19 @@ function drawRectangle() {
 }
 
 
-/*
- * Color. 3 points.
- *
- * Write a function that draws a rectangle on the canvas. By default, the
- * rectangle will have a height and width of 50px and 100px, respectively. It
- * will be positioned at [10, 10] on the canvas. You'll need to prompt the
- * user to enter a color for the rectangle.
- *
- * Support the following colors:
- *     - black
- *     - blue
- *     - green
- *     - orange
- *     - purple
- *     - red
- *     - yellow
- *
- * You'll need to use the appropriate Canvas API methods to do this. If you're
- * unsure what your code should do, click the "Example" button to see. When you
- * click the "Color" button, your output should match that of the example.
- *
- * Check the example to see what your code should do if the user enters an
- * unsupported color.
- */
 
 function drawColoredRectangle() {
 
+  let color = prompt("Color:");
+  let c = document.getElementById('canvas3').getContext('2d');
+  c.clearRect(0,0,1024,512);
+
+  if ((color!=="black" && color!=="blue" && color!=="green" && color!=="orange" && color!=="purple" && color!=="red" && color!=="yellow")) {
+    alert("That color is not supported");
+  } else {
+  c.fillStyle = color;
+  c.fillRect(10,10,100,50);
+}
 }
 
 /*

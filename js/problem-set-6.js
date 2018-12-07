@@ -49,11 +49,11 @@ function drawRectangle() {
   let x = prompt("X Value:");
   let y = prompt("Y Value:");
 
-  if (Number.isInteger(Number(width))=false || Number.isInteger(Number(height))=false || Number.isInteger(Number(x))=false || Number.isInteger(Number(y))=false) {
+  if (Number.isInteger(Number(width))==false || Number.isInteger(Number(height))==false || Number.isInteger(Number(x))==false || Number.isInteger(Number(y))==false) {
     alert("One of your inputs is not a number.")
   }
   else if (width<1) {
-    alert("Your width is too small.");
+    alert("Your width is too small");
   }
   else if (width>1024) {
     alert("Your width is too large");
@@ -62,10 +62,26 @@ function drawRectangle() {
     alert("Your height is too large");
   }
   else if (height<1) {
-    alert("Your height is too small")
+    alert("Your height is too small");
+  }
+  else if (x<5) {
+    alert("Your X value is too small");
+  }
+  else if (y<5) {
+    alert("Your Y value is too small");
+  }
+  else if ((Number(width) + Number(x))>1024) {
+    alert("Your X value is too large");
+  }
+  else if ((Number(height) + Number(y))>512) {
+    alert("Your Y value is too large");
   }
 
+  let b = document.getElementById('canvas2').getContext('2d');
+  b.clearRect(0,0,1024,512);
+  b.strokeRect(x,y,width,height);
 }
+
 
 /*
  * Color. 3 points.

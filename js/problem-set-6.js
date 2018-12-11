@@ -129,7 +129,30 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
 
+let arr = []
+let side1 = prompt("Side 1: ");
+arr.push(side1);
+let side2 = prompt("Side 2: ");
+arr.push(side2);
+let side3 = prompt("Side 3: ");
+arr.push(side3);
+let hyp = Number(Math.max(...arr));
+let left = Number(Math.min(...arr));
+let sum = arr.reduce((previous, current) => current += previous);
+let bottom = sum - (hyp+left);
+
+console.log(hyp);
+console.log(left);
+console.log(bottom);
+
+
+if (Number.isInteger(Number(side1))==false || Number.isInteger(Number(side2))==false || Number.isInteger(Number(hyp))==false) {
+  alert("One of your inputs is not a number.")
 }
+
+
+}
+
 
 /*
  * Smile. 7 points.

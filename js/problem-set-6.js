@@ -130,26 +130,52 @@ function drawColoredRectangle() {
 function drawTriangle() {
 
 let arr = []
-let side1 = prompt("Side 1: ");
+let side1 = Number(prompt("Side 1: "));
 arr.push(side1);
-let side2 = prompt("Side 2: ");
+let side2 = Number(prompt("Side 2: "));
 arr.push(side2);
-let side3 = prompt("Side 3: ");
+let side3 = Number(prompt("Side 3: "));
 arr.push(side3);
 let hyp = Number(Math.max(...arr));
 let left = Number(Math.min(...arr));
 let sum = arr.reduce((previous, current) => current += previous);
-let bottom = sum - (hyp+left);
+let bottom = Number(sum) - (Number(hyp)+Number(left));
 
 console.log(hyp);
 console.log(left);
 console.log(bottom);
 
-
-if (Number.isInteger(Number(side1))==false || Number.isInteger(Number(side2))==false || Number.isInteger(Number(hyp))==false) {
-  alert("One of your inputs is not a number.")
+if (Number.isInteger(side1)==false || Number.isInteger(side2)==false || Number.isInteger(hyp)==false) {
+  alert("One of your inputs is not a number.");
 }
+else if (left<1 || bottom<1 || hyp<1) {
+  alert("That is not a valid right triangle");
+}
+else if ( ( (Math.pow(left, 2)) + (Math.pow(bottom, 2)) ) !== Math.pow(hyp, 2) ) {
+  alert("That is not a valid right triangle");
+}
+else if (bottom>1014 || left>502) {
+  alert("That is triangle too big to display in the given area.");
+}
+else {
 
+  let c = document.getElementById('canvas4').getContext('2d');
+  c.clearRect(0,0,1024,512);
+
+  c.beginPath();
+  // left-hand side
+  c.moveTo(10, 10);
+  c.lineTo(10, (left));
+  // bottom side
+  c.moveTo(10, (left));
+  c.lineTo(bottom, left);
+  // hypotenuse
+  c.moveTo(10, 10);
+  c.lineTo(bottom, left);
+  c.closePath();
+  c.stroke();
+
+}
 
 }
 

@@ -201,7 +201,27 @@ else {
 
 function drawSmileyFace() {
 
+  let radius = Number(prompt("Enter a radius"));
+  let eyes = radius*0.1;
+  let mouth = radius*0.7;
+
+  let c = document.getElementById('canvas5').getContext('2d');
+  c.clearRect(0,0,1024,512);
+
+    c.beginPath();
+    c.arc(250, 250, 50, 0, Math.PI * 2, true); // Head
+    c.moveTo(280, 250);
+    c.arc(75, 75, 35, 0, Math.PI, false);  // Mouth
+    c.moveTo(240, 240);
+    c.arc(235, 240, 5, 0, Math.PI * 2, true);  // Left eye
+    c.moveTo(260, 240);
+    c.arc(265, 240, 5, 0, Math.PI * 2, true);  // Right eye
+    c.stroke();
+
+
 }
+
+//arc(x, y, radius, startAngle, endAngle, anticlockwise)
 
 /*
  * Star. 9 points.

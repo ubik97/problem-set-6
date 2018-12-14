@@ -12,10 +12,10 @@
 
 function sayHello() {
 
-  let a = document.getElementById('canvas1').getContext('2d');
-  a.clearRect(0,0,1024,128);
-  a.font = '48px sans-serif';
-  a.strokeText('Hello, world!', 10, 50);
+  let ctx = document.getElementById('canvas1').getContext('2d');
+  ctx.clearRect(0,0,1024,128);
+  ctx.font = '48px sans-serif';
+  ctx.strokeText('Hello, world!', 10, 50);
 
 }
 
@@ -77,9 +77,9 @@ function drawRectangle() {
     alert("Your Y value is too large");
   }
 
-  let b = document.getElementById('canvas2').getContext('2d');
-  b.clearRect(0,0,1024,512);
-  b.strokeRect(x,y,width,height);
+  let ctx = document.getElementById('canvas2').getContext('2d');
+  ctx.clearRect(0,0,1024,512);
+  ctx.strokeRect(x,y,width,height);
 }
 
 
@@ -87,14 +87,14 @@ function drawRectangle() {
 function drawColoredRectangle() {
 
   let color = prompt("Color:");
-  let c = document.getElementById('canvas3').getContext('2d');
-  c.clearRect(0,0,1024,512);
+  let ctx = document.getElementById('canvas3').getContext('2d');
+  ctx.clearRect(0,0,1024,512);
 
   if ((color!=="black" && color!=="blue" && color!=="green" && color!=="orange" && color!=="purple" && color!=="red" && color!=="yellow")) {
     alert("That color is not supported");
   } else {
-  c.fillStyle = color;
-  c.fillRect(10,10,100,50);
+  ctx.fillStyle = color;
+  ctx.fillRect(10,10,100,50);
 }
 }
 
@@ -159,21 +159,21 @@ else if (bottom>1014 || left>502) {
 }
 else {
 
-  let c = document.getElementById('canvas4').getContext('2d');
-  c.clearRect(0,0,1024,512);
+  let ctx = document.getElementById('canvas4').getContext('2d');
+  ctx.clearRect(0,0,1024,512);
 
-  c.beginPath();
+  ctx.beginPath();
   // left-hand side
-  c.moveTo(10, 10);
-  c.lineTo(10, (left));
+  ctx.moveTo(10, 10);
+  ctx.lineTo(10, (left));
   // bottom side
-  c.moveTo(10, (left));
-  c.lineTo(bottom, left);
+  ctx.moveTo(10, (left));
+  ctx.lineTo(bottom, left);
   // hypotenuse
-  c.moveTo(10, 10);
-  c.lineTo(bottom, left);
-  c.closePath();
-  c.stroke();
+  ctx.moveTo(10, 10);
+  ctx.lineTo(bottom, left);
+  ctx.closePath();
+  ctx.stroke();
 
 }
 
@@ -204,21 +204,32 @@ function drawSmileyFace() {
   let radius = Number(prompt("Enter a radius"));
   let eyes = radius*0.1;
   let mouth = radius*0.7;
+  let end = Math.PI*2
 
-  let c = document.getElementById('canvas5').getContext('2d');
-  c.clearRect(0,0,1024,512);
+  if (isNaN(radius)) {
+    alert("That's not a number!");
+  }
+  else if (radius>250) {
+    alert("That radius is too large.");
+  }
+  else {
+  let ctx = document.getElementById('canvas5').getContext('2d');
+  ctx.clearRect(0,0,1024,512);
 
-    c.beginPath();
-    c.arc(250, 250, 50, 0, Math.PI * 2, true); // Head
-    c.moveTo(280, 250);
-    c.arc(75, 75, 35, 0, Math.PI, false);  // Mouth
-    c.moveTo(240, 240);
-    c.arc(235, 240, 5, 0, Math.PI * 2, true);  // Left eye
-    c.moveTo(260, 240);
-    c.arc(265, 240, 5, 0, Math.PI * 2, true);  // Right eye
-    c.stroke();
-
-
+  ctx.clearRect(0, 0, 1024, 512);
+   ctx.beginPath();
+   ctx.arc(radius, radius, radius, 0, end);
+   ctx.stroke();
+   ctx.beginPath()
+   ctx.arc(radius, radius, mouth, 0, end/2);
+   ctx.stroke();
+   ctx.beginPath()
+   ctx.arc(radius*1.4, radius*0.5, eyes, 0, end);
+   ctx.stroke();
+   ctx.beginPath()
+   ctx.arc(radius*0.6, radius*0.5, eyes, 0, end);
+   ctx.stroke();
+ }
 }
 
 //arc(x, y, radius, startAngle, endAngle, anticlockwise)

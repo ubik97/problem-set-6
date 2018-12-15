@@ -350,14 +350,44 @@ function drawHouse() {
     ctx.clearRect(0,0,1024,760);
 
     let hwidth = 724                          //outer rectangle
-    let hheight = 450
+    let hheight = 45
 
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.fillStyle = hcol;
     ctx.strokeRect(150, 300, 724, 450);
-    ctx.fillRect(150, 300, 724, 450);         //outer rectangle
+    ctx.fillRect(150, 300, 724, 450);
 
-    
+
+    ctx.beginPath();                          //roof
+    ctx.moveTo(150, 300);
+    ctx.lineTo(512, 10);
+    ctx.lineTo(874, 300);
+    ctx.closePath();
+
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = "gray";
+    ctx.fill();
+
+    ctx.lineWidth = 2;                        //upper windows
+    ctx.fillStyle = "lightblue";
+    ctx.strokeRect(275, 380, 80, 80);
+    ctx.fillRect(275, 380, 80, 80);
+
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "lightblue";
+    ctx.strokeRect(669, 380, 80, 80);
+    ctx.fillRect(669, 380, 80, 80);
+
+    ctx.lineWidth = 2;                        //lower windows
+    ctx.fillStyle = "lightblue";
+    ctx.strokeRect(275, 640, 80, 80);
+    ctx.fillRect(275, 640, 80, 80);
+
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "lightblue";
+    ctx.strokeRect(669, 640, 80, 80);
+    ctx.fillRect(669, 640, 80, 80);
 
 
 

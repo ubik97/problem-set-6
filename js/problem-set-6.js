@@ -212,23 +212,24 @@ function drawSmileyFace() {
   else if (radius>250) {
     alert("That radius is too large.");
   }
+  else if (radius<1) {
+    alert("That radius is too small.");
+  }
   else {
   let ctx = document.getElementById('canvas5').getContext('2d');
   ctx.clearRect(0,0,1024,512);
-
-  ctx.clearRect(0, 0, 1024, 512);
-   ctx.beginPath();
-   ctx.arc(radius, radius, radius, 0, end);
-   ctx.stroke();
-   ctx.beginPath()
-   ctx.arc(radius, radius, mouth, 0, end/2);
-   ctx.stroke();
-   ctx.beginPath()
-   ctx.arc(radius*1.4, radius*0.5, eyes, 0, end);
-   ctx.stroke();
-   ctx.beginPath()
-   ctx.arc(radius*0.6, radius*0.5, eyes, 0, end);
-   ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(radius, radius, radius, 0, end); // head
+  ctx.stroke();
+  ctx.beginPath()
+  ctx.arc(radius, radius, mouth, 0, end/2); // mouth
+  ctx.stroke();
+  ctx.beginPath()
+  ctx.arc(radius*1.4, radius*0.5, eyes, 0, end); // eye
+  ctx.stroke();
+  ctx.beginPath()
+  ctx.arc(radius*0.6, radius*0.5, eyes, 0, end); // eye
+  ctx.stroke();
  }
 }
 
@@ -253,6 +254,13 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
+
+  let ctx = document.getElementById('canvas5').getContext('2d');
+ctx.clearRect(0,0,1024,512);
+
+
+
+
 
 }
 
@@ -328,4 +336,37 @@ function drawPyramid() {
 
 function drawHouse() {
 
+  let hcol = prompt("What color will your house be?");
+  let dcol = prompt("What color will your door be?");
+
+  if (hcol!=="blue" && hcol!=="brown" && hcol!=="green" && hcol!=="orange" && hcol!=="purple" && hcol!=="red" && hcol!=="yellow") {
+    alert("One of your colors is not supported");
+  }
+  else if (dcol!=="blue" && dcol!=="brown" && dcol!=="green" && dcol!=="orange" && dcol!=="purple" && dcol!=="red" && dcol!=="yellow") {
+    alert("One of your colors is not supported");
+  } else {
+
+    let ctx = document.getElementById('canvas9').getContext('2d');
+    ctx.clearRect(0,0,1024,760);
+
+    let hwidth = 724                          //outer rectangle
+    let hheight = 450
+
+    ctx.lineWidth = 3;
+    ctx.fillStyle = hcol;
+    ctx.strokeRect(150, 300, 724, 450);
+    ctx.fillRect(150, 300, 724, 450);         //outer rectangle
+
+    
+
+
+
+
+
+
+
+
+
+
+  }
 }

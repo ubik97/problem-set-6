@@ -211,25 +211,16 @@ ctx.clearRect(0,0,1024,512);
 
 function drawStopSign() {
 
+  ctx.beginPath();                       //u have to use sqrt(2) to figure out all the diagonal distances bleh
+  ctx.moveTo(, 300);
+  ctx.lineTo(512, 10);
+  ctx.lineTo(874, 300);
+  ctx.closePath();
 }
 
-/*
- * Pyramid. 7 points.
- *
- * Write a function that draws a block pyramid, where the user specifies the
- * side length of each block. By default, we'll draw a pyramid with a base
- * of five blocks. Give the leftmost point of the pyramid an X-coordinates of
- * 10. Give the bottom of the pyramid a Y-coordinate of 10 less than the
- * height of the canvas.
- *
- * You'll need to use the appropriate Canvas API methods to do this. If you're
- * unsure what your code should do, click the "Example" button to see. When you
- * click the "Pyramid" button, your output should match that of the example.
- *
- * Certain values, such as lengths that are logically too small or practically
- * too large, should be prohibited. Check the example to see what your code
- * should do in these instances.
- */
+
+
+
 
 function drawPyramid() {
 

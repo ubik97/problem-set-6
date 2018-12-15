@@ -336,6 +336,8 @@ function drawPyramid() {
 
 function drawHouse() {
 
+  let ctx = document.getElementById('canvas9').getContext('2d');
+  ctx.clearRect(0,0,1024,760);
   let hcol = prompt("What color will your house be?");
   let dcol = prompt("What color will your door be?");
 
@@ -346,13 +348,7 @@ function drawHouse() {
     alert("One of your colors is not supported");
   } else {
 
-    let ctx = document.getElementById('canvas9').getContext('2d');
-    ctx.clearRect(0,0,1024,760);
-
-    let hwidth = 724                          //outer rectangle
-    let hheight = 45
-
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2;                        //outer rectangle
     ctx.fillStyle = hcol;
     ctx.strokeRect(150, 300, 724, 450);
     ctx.fillRect(150, 300, 724, 450);
@@ -388,6 +384,20 @@ function drawHouse() {
     ctx.fillStyle = "lightblue";
     ctx.strokeRect(669, 640, 80, 80);
     ctx.fillRect(669, 640, 80, 80);
+
+    ctx.lineWidth = 3;                        //door
+    ctx.fillStyle = dcol;
+    ctx.strokeRect(462, 600, 100, 150);
+    ctx.fillRect(462, 600, 100, 150);
+
+    ctx.beginPath()                           //door knob
+    ctx.lineWidth = 3;
+    ctx.fillStyle = "gold";
+    ctx.arc(550, 675, 6, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.fill();
+
+
 
 
 

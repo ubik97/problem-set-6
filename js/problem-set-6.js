@@ -233,6 +233,48 @@ function drawStopSign() {
 
 function drawPyramid() {
 
+  let side = Number(prompt("Enter a side length."));
+  let half = side/2;
+  let side2 = 2*side;
+  let side3 = 3*side;
+  let side4 = 4*side;
+  let side5 = 5*side;
+
+  if (side>100) {
+    alert("The pyramid will not fit on the canvas");
+  }
+  else if (side<1) {
+    alert("That side length is too small.");
+  }
+  else if (isNaN(side)) {
+    alert("Your input is not a number.");
+  } else {
+    let ctx = document.getElementById('canvas8').getContext('2d');
+    ctx.clearRect(0,0,1024,512);
+
+    ctx.strokeRect(10, 502-side, side, side);                 //row 5
+    ctx.strokeRect(10+side, 502-side, side, side);
+    ctx.strokeRect(10+side2, 502-side, side, side);
+    ctx.strokeRect(10+side3, 502-side, side, side);
+    ctx.strokeRect(10+side4,502-side, side, side);
+
+    ctx.strokeRect(10+half, 502-side2, side, side);          //row 4
+    ctx.strokeRect(10+half+side, 502-side2, side, side);
+    ctx.strokeRect(10+half+side2, 502-side2, side, side);
+    ctx.strokeRect(10+half+side3, 502-side2, side, side);
+
+    ctx.strokeRect(10+side, 502-side3, side, side);         //row 3
+    ctx.strokeRect(10+side2, 502-side3, side, side);
+    ctx.strokeRect(10+side3, 502-side3, side, side);
+
+    ctx.strokeRect(10+half+side, 502-side4, side, side);    //row 2
+    ctx.strokeRect(10+half+side2, 502-side4, side, side);
+
+    ctx.strokeRect(10+side2, 502-side5, side, side);        //row 1
+  }
+
+
+
 }
 
 

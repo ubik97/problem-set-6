@@ -272,9 +272,6 @@ function drawPyramid() {
 
     ctx.strokeRect(10+side2, 502-side5, side, side);        //row 1
   }
-
-
-
 }
 
 

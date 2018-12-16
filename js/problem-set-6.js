@@ -185,26 +185,8 @@ function drawSmileyFace() {
 
 function drawStar() {
 
-  let ctx = document.getElementById("canvas6").getContext("2d");
-  let out = Number(prompt("Please enter a number for the outer radius."));
-  let in = Number(prompt("Please enter a number for the inner radius."));
-  const PI = Math.PI;
 
-  if (in!<out) {
-    alert("Your outter radius must be bigger than your inner radius.");
-  }
-  else if (out>125) {
-    alert("The star will not fit on the canvas.");
-  } else {
-
-   ctx.clearRect(0, 0, 1024, 512);
-   ctx.beginPath();
-   ctx.moveTo();
-   ctx.lineTo();
-   ctx.lineTo();
-   ctx.stroke();
-   ctx.closePath();
- }
+ 
 
 
 

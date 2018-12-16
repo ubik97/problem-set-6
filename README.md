@@ -104,6 +104,26 @@ You'll need to use the appropriate [Canvas API](https://developer.mozilla.org/en
 
 Certain values, such as radii that are logically too small or practically too large, should be prohibited. Check the example to see what your code should do in these instances.
 
+let ctx = document.getElementById("canvas6").getContext("2d");
+let out = Number(prompt("Please enter a number for the outer radius."));
+let a = Number(prompt("Please enter a number for the inner radius."));
+const PI = Math.PI;
+
+if (in!<out) {
+  alert("Your outter radius must be bigger than your inner radius.");
+}
+else if (out>125) {
+  alert("The star will not fit on the canvas.");
+} else {
+
+ ctx.clearRect(0, 0, 1024, 512);
+ ctx.beginPath();
+ ctx.moveTo();
+ ctx.lineTo();
+ ctx.lineTo();
+ ctx.stroke();
+ ctx.closePath();
+ 
 ### Exercise 7 (`Stop Sign.`)
 
 Write a function that draws a stop sign. The stop sign should be outlined in black, but filled red. At the center of the stop sign, the same height as the length of the sides, should be the word STOP (all capitals, white). Each side length should be 80px.

@@ -185,8 +185,26 @@ function drawSmileyFace() {
 
 function drawStar() {
 
-  let ctx = document.getElementById('canvas5').getContext('2d');
-ctx.clearRect(0,0,1024,512);
+  let ctx = document.getElementById("canvas6").getContext("2d");
+  let out = Number(prompt("Please enter a number for the outer radius."));
+  let in = Number(prompt("Please enter a number for the inner radius."));
+  const PI = Math.PI;
+
+  if (in!<out) {
+    alert("Your outter radius must be bigger than your inner radius.");
+  }
+  else if (out>125) {
+    alert("The star will not fit on the canvas.");
+  } else {
+
+   ctx.clearRect(0, 0, 1024, 512);
+   ctx.beginPath();
+   ctx.moveTo();
+   ctx.lineTo();
+   ctx.lineTo();
+   ctx.stroke();
+   ctx.closePath();
+ }
 
 
 
@@ -194,20 +212,9 @@ ctx.clearRect(0,0,1024,512);
 
 }
 
-/*
- * Stop Sign. 7 points.
- *
- * Write a function that draws a stop sign. The stop sign should be outlined
- * in black, but filled red. At the center of the stop sign, the same height
- * as the length of the sides, should be the word STOP (all capitals, white).
- * Each side length should be 80px.
- *
- * You'll need to use the appropriate Canvas API methods to do this. If you're
- * unsure what your code should do, click the "Example" button to see. When you
- * click the "Stop Sign" button, your output should match that of the example.
- *
- * The leftmost and topmost sides should have X- and Y-coordinates of 10.
- */
+
+
+
 
 function drawStopSign() {
 

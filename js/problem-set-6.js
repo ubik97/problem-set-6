@@ -211,11 +211,30 @@ ctx.clearRect(0,0,1024,512);
 
 function drawStopSign() {
 
-  ctx.beginPath();                       //u have to use sqrt(2) to figure out all the diagonal distances bleh
-  ctx.moveTo(, 300);
-  ctx.lineTo(512, 10);
-  ctx.lineTo(874, 300);
+  let ctx = document.getElementById('canvas7').getContext('2d');
+
+  let a = 56.56854249;
+  let a2 = 2*a;
+
+  ctx.beginPath();
+  ctx.lineWidth = 1;
+  ctx.moveTo(10+a, 10);
+  ctx.lineTo(90+a, 10);
+  ctx.lineTo(90+a2, 10+a);
+  ctx.lineTo(90+a2, 90+a);
+  ctx.lineTo(90+a, 90+a2);
+  ctx.lineTo(10+a, 90+a2);
+  ctx.lineTo(10, 90+a);
+  ctx.lineTo(10, 10+a);
+  ctx.lineTo(10+a, 10);
+  ctx.stroke()
+  ctx.fillStyle = "red";
+  ctx.fill()
   ctx.closePath();
+
+  ctx.font = '65px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText('STOP', a-38, 70+a);
 }
 
 

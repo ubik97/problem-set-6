@@ -188,8 +188,8 @@ function drawStar() {
   let ctx = document.getElementById('canvas7').getContext('2d');
   let outrad = Number(prompt("Enter an outter radius: "));
   let inrad = Number(prompt("Enter an inner radius: "));
-  const a = 125;
   const PI = Math.PI;
+  let p = 0;
 
   if (isNaN(outrad) || isNaN(inrad)) {
     alert("One of your inputs is not a number.");
@@ -203,24 +203,16 @@ function drawStar() {
     ctx.beginPath();
     ctx.moveTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
     for (let i = 0.1; i<=1.9; i+0.2) {
-    ctx.lineTo((ourad*Math.cos(0.3*PI)+125), (ourad*Math.sin(0.3*PI)+125));
-
-
+    p++;
+    if (p%2=0) {
+    ctx.lineTo((outrad*Math.cos(i*PI)+125), (outrad*Math.sin(i*PI)+125));
+    } else {
+    ctx.lineTo((inrad*Math.cos(i+PI)+125), (inrad*Math.sin(i*PI)+125));   
+    }
+    ctx.stroke()
     }
 
-    ctx.moveTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
-    ctx.lineTo((ourad*Math.cos(0.3*PI)+125), (ourad*Math.sin(0.3*PI)+125));
-    ctx.lineTo((inrad*Math.cos(0.5*PI)+125), (inrad*Math.sin(0.5*PI)+125));
-    ctx.lineTo((ourad*Math.cos(0.7*PI)+125), (ourad*Math.sin(0.7*PI)+125));
-    ctx.lineTo((inrad*Math.cos(0.9*PI)+125), (inrad*Math.sin(0.9*PI)+125));
-    ctx.lineTo((ourad*Math.cos(1.1*PI)+125), (ourad*Math.sin(1.1*PI)+125));
-    ctx.lineTo((inrad*Math.cos(1.3*PI)+125), (inrad*Math.sin(1.3*PI)+125));
-    ctx.lineTo((ourad*Math.cos(1.5*PI)+125), (ourad*Math.sin(1.5*PI)+125));
-    ctx.lineTo((inrad*Math.cos(1.7*PI)+125), (inrad*Math.sin(1.7*PI)+125));
-    ctx.lineTo((ourad*Math.cos(1.9*PI)+125), (ourad*Math.sin(1.9*PI)+125));
-    ctx.lineTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
-    ctx.stroke();
-  }
+    }
 
 
 

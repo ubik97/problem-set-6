@@ -45,11 +45,12 @@ function drawRectangle() {
   }
   else if ((Number(height) + Number(y))>512) {
     alert("Your Y value is too large");
-  }
+  } else {
 
   let ctx = document.getElementById('canvas2').getContext('2d');
   ctx.clearRect(0,0,1024,512);
   ctx.strokeRect(x,y,width,height);
+}
 }
 
 

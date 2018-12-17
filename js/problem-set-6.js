@@ -165,31 +165,16 @@ function drawSmileyFace() {
 }
 
 
-/*
- * Star. 9 points.
- *
- * Write a function that draws a five-point star on the canvas. Prompt the
- * user for the outer radius (i.e., a circle that would connect each of the
- * star's outer points) and inner radius (i.e., a circle that would connect
- * each of the star's inner points). The center of the star should be placed
- * at [125, 125].
- *
- * You'll need to use the appropriate Canvas API methods to do this. If you're
- * unsure what your code should do, click the "Example" button to see. When you
- * click the "Star" button, your output should match that of the example.
- *
- * Certain values, such as radii that are logically too small or practically
- * too large, should be prohibited. Check the example to see what your code
- * should do in these instances.
- */
+
+
 
 function drawStar() {
 
-  let ctx = document.getElementById('canvas7').getContext('2d');
+  let ctx = document.getElementById('canvas6').getContext('2d');
   let outrad = Number(prompt("Enter an outter radius: "));
   let inrad = Number(prompt("Enter an inner radius: "));
   const PI = Math.PI;
-  let p = 0;
+  const a = 125
 
   if (isNaN(outrad) || isNaN(inrad)) {
     alert("One of your inputs is not a number.");
@@ -201,23 +186,17 @@ function drawStar() {
     ctx.clearRect(0, 0, 1024, 512);
 
     ctx.beginPath();
-    ctx.moveTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
-    for (let i = 0.1; i<=1.9; i+0.2) {
-    p++;
-    if (p%2=0) {
-    ctx.lineTo((outrad*Math.cos(i*PI)+125), (outrad*Math.sin(i*PI)+125));
-    } else {
-    ctx.lineTo((inrad*Math.cos(i+PI)+125), (inrad*Math.sin(i*PI)+125));   
+    ctx.moveTo(a, a - outrad);
+    let p = 1.5;
+    for(let i = 0; i < 5; i++){
+      p = p + 0.2;
+      ctx.lineTo((inrad*Math.cos(p*PI))+a, (inrad*Math.sin(p*PI))+a);
+
+      p = p + 0.2;
+      ctx.lineTo((outrad*Math.cos(p*PI))+a, (outrad*Math.sin(p*PI))+a);
     }
-    ctx.stroke()
-    }
-
-    }
-
-
-
-
-
+    ctx.stroke();
+ }
 }
 
 
@@ -233,7 +212,7 @@ function drawStopSign() {
 
   ctx.beginPath();
   ctx.lineWidth = 1;
-  ct.strokeStyle = black;
+  ctx.strokeStyle = "black";
   ctx.moveTo(10+a, 10);
   ctx.lineTo(90+a, 10);
   ctx.lineTo(90+a2, 10+a);

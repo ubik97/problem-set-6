@@ -185,8 +185,42 @@ function drawSmileyFace() {
 
 function drawStar() {
 
+  let ctx = document.getElementById('canvas7').getContext('2d');
+  let outrad = Number(prompt("Enter an outter radius: "));
+  let inrad = Number(prompt("Enter an inner radius: "));
+  const a = 125;
+  const PI = Math.PI;
 
- 
+  if (isNaN(outrad) || isNaN(inrad)) {
+    alert("One of your inputs is not a number.");
+  }
+  else if (outrad<=inrad) {
+    alert("Your outter radius must be larger than the inner radius.");
+  } else {
+
+    ctx.clearRect(0, 0, 1024, 512);
+
+    ctx.beginPath();
+    ctx.moveTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
+    for (let i = 0.1; i<=1.9; i+0.2) {
+    ctx.lineTo((ourad*Math.cos(0.3*PI)+125), (ourad*Math.sin(0.3*PI)+125));
+
+
+    }
+
+    ctx.moveTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
+    ctx.lineTo((ourad*Math.cos(0.3*PI)+125), (ourad*Math.sin(0.3*PI)+125));
+    ctx.lineTo((inrad*Math.cos(0.5*PI)+125), (inrad*Math.sin(0.5*PI)+125));
+    ctx.lineTo((ourad*Math.cos(0.7*PI)+125), (ourad*Math.sin(0.7*PI)+125));
+    ctx.lineTo((inrad*Math.cos(0.9*PI)+125), (inrad*Math.sin(0.9*PI)+125));
+    ctx.lineTo((ourad*Math.cos(1.1*PI)+125), (ourad*Math.sin(1.1*PI)+125));
+    ctx.lineTo((inrad*Math.cos(1.3*PI)+125), (inrad*Math.sin(1.3*PI)+125));
+    ctx.lineTo((ourad*Math.cos(1.5*PI)+125), (ourad*Math.sin(1.5*PI)+125));
+    ctx.lineTo((inrad*Math.cos(1.7*PI)+125), (inrad*Math.sin(1.7*PI)+125));
+    ctx.lineTo((ourad*Math.cos(1.9*PI)+125), (ourad*Math.sin(1.9*PI)+125));
+    ctx.lineTo((inrad*Math.cos(0.1*PI)+125), (inrad*Math.sin(0.1*PI)+125));
+    ctx.stroke();
+  }
 
 
 
@@ -202,11 +236,12 @@ function drawStopSign() {
 
   let ctx = document.getElementById('canvas7').getContext('2d');
 
-  let a = 56.56854249;
+  let a = 40*Math.SQRT2;
   let a2 = 2*a;
 
   ctx.beginPath();
   ctx.lineWidth = 1;
+  ct.strokeStyle = black;
   ctx.moveTo(10+a, 10);
   ctx.lineTo(90+a, 10);
   ctx.lineTo(90+a2, 10+a);
